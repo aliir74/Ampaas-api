@@ -36,8 +36,22 @@ class CountryController extends Controller {
                 reply(500, {err: err})
                 return
             }
-            reply(200)
+            reply({statusCode: 200})
         })
+    }
+
+    async process_$id_delete(request, reply, {id}) {
+        var polling = request.payload.polling
+        // delete process from array of country
+        await Country.update({_id: id}, {$pullAll: {processes: [{value: polling}]}})
+        reply({statusCode: 200})
+    }
+
+    async process_$id_post(request, reply, {id}) {
+        var value = request.payload.polling
+        var prId = request.payload.processId
+        var newobj = {value: polling, ref: prId}
+        await Country.update({_id: id}, {$push: {processes: newobj}})
     }
 }
 
