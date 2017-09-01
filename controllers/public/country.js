@@ -46,10 +46,10 @@ class CountryController extends Controller {
         })
     }
 
-    async process_$id_delete(request, reply, {id}) {
+    async process_$id_put(request, reply, {id}) {
         var polling = request.payload.polling
         // delete process from array of country
-        await Country.update({_id: id}, {$pullAll: {processes: [{value: polling}]}})
+        await Country.update({_id: id}, {$pull: {processes: {value: polling}}})
         reply({statusCode: 200})
     }
 
