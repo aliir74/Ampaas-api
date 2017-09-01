@@ -1,5 +1,5 @@
 {
-  "name": "aut-buffet-api",
+  "name": "ampaas-api",
   "private": true,
   "scripts": {
     "start": "node --preserve-symlinks app",

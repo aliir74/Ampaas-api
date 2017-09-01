@@ -10,7 +10,7 @@ const LoggingPlugin = require('bak/lib/logging');
 const Scooter = require('scooter');
 
 // App
-const UserModel = require('./models/user');
+// const UserModel = require('./models/user');
 const AppPolicy = require('./policy');
 
 init({
@@ -22,7 +22,7 @@ init({
         {register: MongoosePlugin, options: Config.get('mongo')},
 
         // Auth
-        {register: AuthPlugin, options: Object.assign({user_model: UserModel}, Config.get('auth'))},
+        // {register: AuthPlugin, options: Object.assign({user_model: UserModel}, Config.get('auth'))},
 
         // Policy
         {register: PolicyPlugin, options: {policies: AppPolicy}},

@@ -1,6 +1,3 @@
-/**
- * Created by rajab on 5/28/2017.
- */
 const Controller = require('bak/lib/controller');
 const Boom = require('boom');
 class PublicController extends Controller {
@@ -8,7 +5,6 @@ class PublicController extends Controller {
     constructor() {
         //noinspection JSAnnotator
         super({
-            models: {},
             default: {}
         });
     }
@@ -19,10 +15,6 @@ class PublicController extends Controller {
 
     async getHello(request, reply) {
         reply(' World!');
-    }
-
-    async register_post(request, reply) {
-
     }
 }
 
