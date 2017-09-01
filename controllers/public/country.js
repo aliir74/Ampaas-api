@@ -39,4 +39,4 @@ class CountryController extends Controller {
     }
 }
 
-module.exports = CountryController();
+module.exports = CountryController;

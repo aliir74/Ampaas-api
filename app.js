@@ -36,7 +36,7 @@ init({
         {prefix: '/api', routes: () => require('./controllers/public')},
 
         // Admin API
-        {prefix: '/api/admin', routes: () => require('./controllers/admin')}
+        // {prefix: '/api/admin', routes: () => require('./controllers/admin')}
 
     ]
 

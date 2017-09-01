@@ -16,7 +16,7 @@ module.exports = {
     auth: {
         secret: 'default',
         client: {
-            discover_url: 'https://localhost:3000',
+            discover_url: 'https://localhost:3001',
             client_id: 'ampaas',
             client_secret: ''
         }
