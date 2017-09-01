@@ -16,6 +16,13 @@ class ProcessController extends Controller {
     async $id(request, reply, { id }) {
 
     }
+
+    async _post(request, reply) {
+        var obj = request.payload.obj
+        var proc = new Process(obj)
+        await proc.save()
+        reply(proc)
+    }
 }
 
 module.exports = ProcessController;

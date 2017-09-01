@@ -50,7 +50,7 @@ class CountryController extends Controller {
     async process_$id_post(request, reply, {id}) {
         var value = request.payload.polling
         var prId = request.payload.processId
-        var newobj = {value: polling, ref: prId}
+        var newobj = {value: value, ref: prId}
         await Country.update({_id: id}, {$push: {processes: newobj}})
     }
 }
