@@ -15,7 +15,7 @@ class Process extends Model{
                 value1: {type: Number},
                 value2: {type: Number},
                 repeat1: {type: Number},
-                repeat2: {type: Number},
+                repeat2: {type: Number}
             } ]
         }
     }
