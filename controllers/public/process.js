@@ -11,6 +11,8 @@ class ProcessController extends Controller {
     }
 
     async _(request, reply) {
+        var processes = Process.find({})
+        reply(processes)
     }
 
     async $id(request, reply, { id }) {
