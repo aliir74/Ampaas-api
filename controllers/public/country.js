@@ -20,7 +20,13 @@ class CountryController extends Controller {
 
     async $id_put(request, reply, {id}) {
         var newData = request.payload.country
-        await Country.findOneAndUpdate({_id: id}, newData, {upsert: false}, function (err, doc) {
+        let newChartData
+        await Country.findById(id, function (err, item) {
+            newChartData = item.chartData
+        })
+        // console.log(newChartData)
+        newChartData.datasets[0].data = newData
+        await Country.findOneAndUpdate({_id: id}, { $set: {chartData: newChartData}}, {upsert: false}, function (err, doc) {
             if(err) {
                 reply(500, {err: err})
                 return
@@ -52,6 +58,8 @@ class CountryController extends Controller {
         var prId = request.payload.processId
         var newobj = {value: value, ref: prId}
         await Country.update({_id: id}, {$push: {processes: newobj}})
+        reply({statusCode: 200})
+
     }
 }
 
