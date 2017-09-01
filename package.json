@@ -1,0 +1,23 @@
+{
+  "name": "aut-buffet-api",
+  "private": true,
+  "scripts": {
+    "start": "node --preserve-symlinks app",
+    "dev": "node node_modules/nodemon/bin/nodemon --preserve-symlinks app",
+    "test": "xo",
+    "fix": "xo --fix"
+  },
+  "xo": {
+    "space": 4,
+    "rules": {
+      "camelcase": 0
+    }
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "bak": "^0.10.0",
+    "hapi": "16.4.3",
+    "handlebars": "^4.0.8",
+    "scooter": "^4.0.0"
+  }
+}
