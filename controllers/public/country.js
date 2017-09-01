@@ -14,6 +14,8 @@ class CountryController extends Controller {
     ** Gives all categories populated with their foods
     */
     async _(request, reply) {
+        var countries = Country.find({})
+        reply(countries)
     }
 
     async $id_put(request, reply, {id}) {
@@ -27,7 +29,7 @@ class CountryController extends Controller {
         })
     }
 
-    async ampaas_$id_pu(request, reply, {id}) {
+    async ampaas_$id_put(request, reply, {id}) {
         var newAmpaasStatus = request.payload.ampaas
         await Country.findOneAndUpdate({_id: id}, {ampaas: newAmpaasStatus}, function (err, doc) {
             if(err) {
