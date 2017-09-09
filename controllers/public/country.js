@@ -20,19 +20,34 @@ class CountryController extends Controller {
 
     async $id_put(request, reply, {id}) {
         var newData = request.payload.country
+        console.log('pay load' + newData)
+        const that = this
         let newChartData
         await Country.findById(id, function (err, item) {
-            newChartData = item.chartData
-        })
-        // console.log(newChartData)
-        newChartData.datasets[0].data = newData
-        await Country.findOneAndUpdate({_id: id}, { $set: {chartData: newChartData}}, {upsert: false}, function (err, doc) {
-            if(err) {
-                reply(500, {err: err})
-                return
+            if (err) {
+                console.log('find by id err' + err)
             }
-            reply(200)
+            newChartData = item.chartData
+            reply(that.testFunc(id, newChartData, newData))
         })
+        // reply(200)
+    }
+    
+    async testFunc(id, data, newData) {
+        console.log('test func')
+        console.log(data.datasets)
+        console.log('\n')
+        data.datasets[0].data = newData
+        await Country.findOneAndUpdate({_id: id}, { $set: {chartData: data}}, {upsert: false}, 
+        function (err, doc) {
+            if(err) {
+                //reply(500, {err: err})
+                return 500
+            }
+            //reply(200)
+            return 200
+        })
+        return 200
     }
 
     async ampaas_$id_put(request, reply, {id}) {
